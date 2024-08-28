@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/trabajomauricio .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/lp2 .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/trabajomauricio
+# docker run -i --rm -p 8080:8080 quarkus/lp2
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0
