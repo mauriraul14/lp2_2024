@@ -1,8 +1,10 @@
 # Tareas
-aaaa
-[Tarea 1](tarea1.md)
 
-# trabajomauricio
+[Tarea 2](tarea2.md)
+
+[Tarea 3](tarea3.md)
+
+# presupuesto-mensual
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -11,6 +13,8 @@ If you want to learn more about Quarkus, please visit its website: <https://quar
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
+
+
 
 ```shell script
 ./mvnw compile quarkus:dev
@@ -53,7 +57,7 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/trabajomauricio-1.0.0-SNAPSHOT-runner`
+You can then execute your native executable with: `./target/presupuesto-mensual-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
@@ -62,3 +66,11 @@ If you want to learn more about building native executables, please consult <htt
 - REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
 - SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Document your REST APIs with OpenAPI - comes with Swagger UI
 - REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
+
+## Provided Code
+
+### REST
+
+Easily start your REST Web Services
+
+[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
