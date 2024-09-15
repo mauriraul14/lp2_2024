@@ -20,6 +20,7 @@ import py.edu.unasur.models.resutls.ResultadoEncontrarValores;
  */
 @Path("/parcial") // /parcial
 public class ParcialResource {
+
     @GET
     @Path("/suma/{numero1}/{numero2}")
     @Produces(MediaType.TEXT_PLAIN)
@@ -30,7 +31,17 @@ public class ParcialResource {
     }
 
     @GET
+    @Path("/multiplicacion/{numero1}/{numero2}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Integer multiplicacionDeDosNumeros(
+            @PathParam("numero1") Integer numero1,
+            @PathParam("numero2") Integer numero2) {
+        return numero1 * numero2;
+    }
+
+    @GET
     @Path("encontrar-valores")
+    @Produces(MediaType.APPLICATION_JSON)
     public ResultadoEncontrarValores encontrarValoresEnLista() {
         List<Integer> numeros = Arrays.asList(12, 31, 1, 2, 31, 1, 123);
         ResultadoEncontrarValores respuesta = new ResultadoEncontrarValores();
