@@ -38,7 +38,15 @@ public class ParcialResource {
             @PathParam("numero2") Integer numero2) {
         return numero1 * numero2;
     }
-
+    
+     @GET
+    @Path("division/{numero1}/{numero2}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Integer divisionDeDosNumeros(
+            @PathParam("numero1") Integer numero1,
+            @PathParam("numero2") Integer numero2) {
+        return numero1 / numero2;
+    }
     @GET
     @Path("encontrar-valores")
     @Produces(MediaType.APPLICATION_JSON)
