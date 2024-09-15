@@ -30,6 +30,33 @@ public class ParcialResource {
         return numero1 + numero2;
     }
 
+     @GET
+    @Path("/resta/{numero1}/{numero2}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Integer restaDeDosNumeros(
+            @PathParam("numero1") Integer numero1,
+            @PathParam("numero2") Integer numero2) {
+        return numero1 - numero2;
+    }
+    
+    
+  @GET
+    @Path("/promedio/{numero1}/{numero2}/{numero3}/{numero4}/{numero5}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Double promedioDeCincoNumeros(
+            @PathParam("numero1") Integer numero1,
+            @PathParam("numero2") Integer numero2,
+            @PathParam("numero3") Integer numero3,
+            @PathParam("numero4") Integer numero4,
+            @PathParam("numero5") Integer numero5) {
+
+        // Calcular la suma de los 5 números
+        Integer suma = numero1 + numero2 + numero3 + numero4 + numero5;
+
+        // Calcular y retornar el promedio
+        return suma / 5.0; // Se usa 5.0 para que el resultado sea en formato decimal
+    }
+
     @GET
     @Path("/multiplicacion/{numero1}/{numero2}")
     @Produces(MediaType.TEXT_PLAIN)
