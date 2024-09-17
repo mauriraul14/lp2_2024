@@ -76,7 +76,7 @@ public class RecursosBasicos {
     @Produces(MediaType.TEXT_PLAIN)
     public String cuartoPostConBody(PostConBodyParam param, @PathParam("id") Integer id) {
 
-        return "Primer post con body ";
+        return "Prime post con0 body ";
     }
 
     @GET
