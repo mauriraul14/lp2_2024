@@ -24,6 +24,7 @@ public class ParcialUnoResource {
     }
 
     // Generar números primos
+
     @GET
     @Path("/prime-numbers/{n}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -64,6 +65,7 @@ public class ParcialUnoResource {
     }
 
     // Secuencia de Fibonacci
+
     @GET
     @Path("/algorithms/fibonacci/{n}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -80,25 +82,25 @@ public class ParcialUnoResource {
     }
 
     // Ordenar Arreglo
-   @POST
-@Path("/algorithms/sort")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
-public Response sortArray(Map<String, Object> body) {
-    System.out.println("Received POST request for sorting");
-    List<Integer> numbers = new ArrayList<>();
-    if (body != null && body.containsKey("numbers")) {
-        numbers = (List<Integer>) body.get("numbers");
-    }
-    if (numbers.isEmpty()) {
-        return Response.status(Response.Status.BAD_REQUEST).entity("La lista no puede estar vacía").build();
-    }
-    Collections.sort(numbers);
-    return Response.ok(numbers).build();
-}
 
+    @POST
+    @Path("/algorithms/sort")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sortArray(Map<String, List<Integer>> body) {
+        System.out.println("Received POST request for sorting: " + body);
+        List<Integer> numbers = body.get("numbers");
+        
+        if (numbers == null || numbers.isEmpty()) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("La lista no puede estar vacía").build();
+        }
+        
+        Collections.sort(numbers);
+        return Response.ok(numbers).build();
+    }
 
     // Número Capicúa
+
     @GET
     @Path("/algorithms/palindrome/{number}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -110,22 +112,26 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Potencia de un Número
+
     @POST
     @Path("/algorithms/power")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response power(Map<String, Integer> body) {
         System.out.println("Received POST request for power: " + body);
-        if (body == null || !body.containsKey("base") || !body.containsKey("exponent")) {
+        Integer base = body.get("base");
+        Integer exponent = body.get("exponent");
+
+        if (base == null || exponent == null) {
             return Response.status(Response.Status.BAD_REQUEST).entity("Faltan parámetros").build();
         }
-        int base = body.get("base");
-        int exponent = body.get("exponent");
+
         int result = (int) Math.pow(base, exponent);
         return Response.ok(result).build();
     }
 
     // Número Perfecto
+
     @GET
     @Path("/algorithms/perfect-number/{number}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -141,6 +147,7 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Calcular Factorial
+
     @GET
     @Path("/algorithms/factorial/{number}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -154,6 +161,7 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Sumatoria de Arreglo
+
     @POST
     @Path("/algorithms/sum-array")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -168,17 +176,20 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Máximo Común Divisor (MCD)
+
     @POST
     @Path("/algorithms/gcd")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response gcd(Map<String, Integer> body) {
         System.out.println("Received POST request for GCD: " + body);
-        if (body == null || !body.containsKey("a") || !body.containsKey("b")) {
+        Integer a = body.get("a");
+        Integer b = body.get("b");
+
+        if (a == null || b == null) {
             return Response.status(Response.Status.BAD_REQUEST).entity("Faltan parámetros").build();
         }
-        int a = body.get("a");
-        int b = body.get("b");
+
         while (b != 0) {
             int temp = b;
             b = a % b;
@@ -188,6 +199,7 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Número Armstrong
+
     @GET
     @Path("/algorithms/armstrong/{number}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -205,6 +217,7 @@ public Response sortArray(Map<String, Object> body) {
     }
 
     // Convertir Número a Binario
+
     @GET
     @Path("/algorithms/convert-to-binary/{number}")
     @Produces(MediaType.APPLICATION_JSON)
