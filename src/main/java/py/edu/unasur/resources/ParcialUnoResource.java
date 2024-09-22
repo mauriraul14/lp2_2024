@@ -26,7 +26,7 @@ public class ParcialUnoResource {
     // Generar números primos
 
     @GET
-    @Path("/prime-numbers/{n}")
+    @Path("/api/algorithms/prime-numbers/{n}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPrimeNumbers(@PathParam("n") int n) {
         List<Integer> primes = new ArrayList<>();
@@ -52,7 +52,7 @@ public class ParcialUnoResource {
 
     // Suma de Dígitos
     @GET
-    @Path("/sum-digits/{number}")
+    @Path("/api/algorithms/sum-digits/{number}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response sumDigits(@PathParam("number") int number) {
         int sum = 0;
