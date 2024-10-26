@@ -23,7 +23,7 @@ public class RecursosBasicos {
     }
 
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String primerPost() {
         return "Primer post";
     }
