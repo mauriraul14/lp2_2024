@@ -32,3 +32,36 @@ Quarkus está optimizado para crear microservicios, que son pequeñas partes de 
 - Perfecto para **microservicios**.
 
 En resumen, Quarkus está diseñado para que puedas construir aplicaciones web modernas de forma rápida, eficiente y escalable, aprovechando al máximo las ventajas de la nube y los microservicios.
+
+
+
+
+# Creación de un Servicio REST Básico en Quarkus
+
+## Describe los pasos para crear un recurso REST en Quarkus y la estructura básica de un endpoint
+
+Para crear un recurso REST en **Quarkus**, se siguen estos pasos básicos:
+
+1. **Crear un Proyecto Quarkus**: Puedes hacerlo utilizando el sitio oficial de Quarkus, generando un proyecto Maven, o ejecutando el comando `mvn io.quarkus:quarkus-maven-plugin:create`.
+2. **Definir el Recurso REST**: Crea una clase en el directorio `src/main/java` que representará el recurso.
+3. **Anotar la Clase con `@Path`**: Define la ruta base del recurso utilizando `@Path`, lo cual indica la URL para acceder al recurso.
+4. **Definir Métodos de Endpoint**: Cada método representa una operación y debe ser anotado con un método HTTP como `@GET`, `@POST`, `@PUT`, o `@DELETE`.
+5. **Configurar `@Produces` y `@Consumes`**: Define el tipo de datos que el endpoint produce y consume.
+
+### Estructura Básica de un Endpoint en Quarkus
+
+```java
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+@Path("/example")
+public class ExampleResource {
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "Hello, Quarkus!";
+    }
+}
